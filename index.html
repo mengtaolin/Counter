@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style>
+			.mui-popover {
+				height: 300px;
+				width: 400px;
+			}
+			
+			.action-type {
+				left: 30px;
+			}
+		</style>
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+			mui.ready(function(){
+				app.init(mui)
+				var item = dataItem();
+				console.log(item);
+			})
+		</script>
+	</head>
+
+	<body>
+		<div>
+			<div>单位：</div>
+			<div class="mui-numbox" data-numbox-step='5' data-numbox-min='0' data-numbox-max='100'>
+				<button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+				<input class="mui-numbox-input" type="number" />
+				<button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+			</div>
+			<p style="text-indent: 0;">
+				<a href="#middlePopover" class="mui-btn mui-btn-primary mui-btn-block mui-btn-outlined" style="padding: 5px 20px;">打开弹出菜单</a>
+			</p>
+		</div>
+		<div id="middlePopover" class="mui-popover">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<div class="mui-input-row">
+						<label>用户名</label>
+						<input id="counter_username" type="text" class="mui-input-clear" placeholder="请输入用户名">
+					</div>
+					<div class="mui-content action-type">
+						<select id="counter_type" class="mui-btn mui-btn-block">
+							<option value="ddz">斗地主</option>
+							<option value="mj">麻将</option>
+						</select>
+					</div>
+					<div class="mui-button-row">
+						<button type="button" class="mui-btn mui-btn-primary" onclick="app.sureClick(event)">确认</button>
+						<button type="button" class="mui-btn mui-btn-danger" onclick="app.cancelClick(event)">取消</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
