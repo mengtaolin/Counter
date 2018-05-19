@@ -1,7 +1,28 @@
 (function(app, document){
 	var mui = null;
 	var popover = null;
-	var dataItem = function(){return new Object()}
+	function PlayerItem(options){
+		_init_(options);
+	}
+	PlayerItem.prototype = {
+		_init_:function(options){
+			this.id = options.id;
+			this.time = options.time;
+			this.name = options.name;
+			//当前第几局
+			this.round = options.round;
+			this.isWin = options.isWin;
+			
+			this.isLandowner = options.isLandowner;
+			this.money = options.money;//赢钱的数量
+			this.bones = options.bones;//该局多少炸
+		}
+		showDetail:function(){
+			var role = this.isLandowner ? "地主" : "农民";
+			var result = this.isWin ? "赢" : "输";
+			return this.name + "在" + this.time + "第" + this.round + "局为" + role + "并" + result + "了" + this.money;
+		}
+	}
 	
 	app.init = function($mui){
 		mui = $mui;
